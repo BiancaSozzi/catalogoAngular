@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup;
+  registered = false;
   constructor(private fb:FormBuilder) {
       this.registroForm=this.fb.group({
           nombre: ['',[Validators.required]],
@@ -21,6 +22,7 @@ export class RegistroComponent implements OnInit {
 
   register() {
       console.log(this.registroForm.value)
+      this.registered = true;
   }
 
   ngOnInit(): void {

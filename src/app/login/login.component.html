@@ -1,16 +1,21 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div>
-        <label for="">Email</label>
-        <input type="email" formControlName="email">
-    </div>
-    <div *ngIf="loginForm.get('email').errors && loginForm.get('email').dirty">
-       <p class="text-danger" *ngIf="loginForm.get('email').hasError('required')">Este campo es obligatorio</p>
-       <p class="text-warning" *ngIf="loginForm.get('email').hasError('email')">El formato es invalido</p>
-    </div>
-    <div>
-        <label for="">Contraseña</label>
-        <input type="password" formControlName="password" >
-        <p class="text-danger" *ngIf = "loginForm.get('password').hasError('required') && loginForm.get('password').dirty">Este campo es obligatorio</p>
-    </div>
-    <input type="submit" value="Ingresar" [disabled]="loginForm.invalid">
-</form>
+<div class="card text-center p-3">
+    <h3>Log in</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div>
+            <label class="p-2">Email</label>
+            <input type="email" formControlName="email">
+        </div>
+        <div *ngIf="loginForm.get('email').errors && loginForm.get('email').dirty">
+           <p class="text-danger" *ngIf="loginForm.get('email').hasError('required')">Este campo es obligatorio</p>
+           <p class="text-warning" *ngIf="loginForm.get('email').hasError('email')">El formato es invalido</p>
+        </div>
+        <div>
+            <label class="p-2">Contraseña</label>
+            <input type="password" formControlName="password" >
+            <p class="text-danger" *ngIf = "loginForm.get('password').hasError('required') && loginForm.get('password').dirty">Este campo es obligatorio</p>
+        </div>
+        <input class="text-center" type="submit" [value]="login_logut_msg" [disabled]="loginForm.invalid" *ngIf="!logged_in">
+        <input class="text-center" type="submit" [value]="login_logut_msg" *ngIf="logged_in">
+    </form>
+    <p *ngIf="logged_in" class="m-3 text-success">Has iniciado sesion exitosamente! </p>
+</div>
