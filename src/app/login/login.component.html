@@ -13,6 +13,7 @@
             <label class="p-2">Contraseña</label>
             <input type="password" formControlName="password" >
             <p class="text-danger" *ngIf = "loginForm.get('password').hasError('required') && loginForm.get('password').dirty">Este campo es obligatorio</p>
+            <p class="text-warning" *ngIf="loginForm.get('password').hasError('minlength') || loginForm.get('password').hasError('maxlength') ">Debe tener entre 6 y 10 caracteres</p>
         </div>
         <input class="text-center" type="submit" [value]="login_logut_msg" [disabled]="loginForm.invalid" *ngIf="!logged_in">
         <input class="text-center" type="submit" [value]="login_logut_msg" *ngIf="logged_in">
