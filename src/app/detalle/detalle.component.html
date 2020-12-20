@@ -1,8 +1,19 @@
-<div *ngIf="product" class="d-flex flex-row bd-highlight justify-content-center m-5">
-    <img class="img-thumbnail" style="width: 25%" src="{{product.image}}" alt="{{product.name}}">
-    <div class="d-flex flex-column bd-highlight mx-5">
-        <h5>{{product.title}}</h5>
-        <p class="text-muted">{{product.description}}</p>
-        <p style="white-space: pre-wrap;">{{product.details}}</p>
+<app-logout *ngIf="isLoggedIn"></app-logout>
+<div *ngIf="isLoggedIn">
+    <div *ngIf="product" class="d-flex flex-row bd-highlight justify-content-center m-5">
+        <img class="img-thumbnail" style="width: 25%" src="{{product.image}}" alt="{{product.name}}">
+        <div class="d-flex flex-column bd-highlight mx-5">
+            <h5>{{product.title}}</h5>
+            <p class="text-muted">{{product.description}}</p>
+            <p style="white-space: pre-wrap;">{{product.details}}</p>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="!isLoggedIn">
+    <div class="row justify-content-md-center">
+            <div class="card-body">
+                <p class="card-text">Inicia Sesion para poder ver el contenido</p>
+                <a class="float-right align-self-end" [routerLink]="['']"> Login</a>
+            </div>
     </div>
 </div>

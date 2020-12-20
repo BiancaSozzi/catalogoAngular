@@ -12,6 +12,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { UsersComponent } from './users/users.component'
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     RegistroComponent,
     LoginComponent,
     DetalleComponent,
-    UsersComponent
+    UsersComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

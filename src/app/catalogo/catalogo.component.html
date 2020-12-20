@@ -1,5 +1,6 @@
-<div class="container">
-    <h1 class="m-5">Bienvenido...</h1>
+<app-logout *ngIf="isLoggedIn"></app-logout>
+<div class="container" *ngIf="isLoggedIn">
+    <h1 class="m-5">Bienvenido {{user.username}}</h1>
     <hr>
     <div class="row justify-content-md-center">
         <div *ngFor="let prod of productsList" class="card m-2" style="width: 100%;">
@@ -13,5 +14,13 @@
               </div>
           </div>
         </div>
+    </div>
+</div>
+<div class="container" *ngIf="!isLoggedIn">
+    <div class="row justify-content-md-center">
+            <div class="card-body">
+                <p class="card-text">Inicia Sesion para poder ver el contenido</p>
+                <a class="float-right align-self-end" [routerLink]="['']"> Login</a>
+            </div>
     </div>
 </div>

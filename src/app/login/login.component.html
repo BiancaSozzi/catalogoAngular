@@ -16,10 +16,10 @@
             <p class="text-warning" *ngIf="loginForm.get('password').hasError('minlength') || loginForm.get('password').hasError('maxlength') ">Debe tener entre 6 y 10 caracteres</p>
         </div>
         <div>
-            <input type="checkbox">
+            <input type="checkbox" (change)="eventCheck($event.target)">
             <label class="px-2">Recuerdame</label>
         </div>
-        <input class="text-center" type="submit" value="Iniciar Sesion" [disabled]="loginForm.invalid" *ngIf="!logged_in" >
+        <input class="text-center" type="submit" value="Iniciar Sesion" [disabled]="loginForm.invalid">
     </form>
     <p *ngIf="error" class="m-3 text-danger">Usuario y/o contraseña incorrectos</p>
 </div>

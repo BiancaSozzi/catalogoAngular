@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../services/products.service';
+import { AuthServiceService } from '../services/auth-service.service'
+import { LogoutComponent } from '../logout/logout.component'
 
 @Component({
   selector: 'app-detalle',
@@ -8,8 +10,9 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit {
-    product;
-  constructor(public route: ActivatedRoute, public productsService: ProductsService) { }
+  product;
+  isLoggedIn = false;
+  constructor(public route: ActivatedRoute, public productsService: ProductsService, public authService: AuthServiceService) { }
 
   ngOnInit(): void {
       this.route.params
@@ -17,6 +20,7 @@ export class DetalleComponent implements OnInit {
           const _id = params['id'].toString();
           this.getProductById(_id);
       })
+      this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   getProductById(id) {

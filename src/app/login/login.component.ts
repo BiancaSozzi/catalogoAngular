@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
           this.usersList.forEach(element => {
               if(element.email == this.loginForm.controls.email.value) {
                   if(element.password == this.loginForm.controls.password.value) {
+                      sessionStorage.setItem('usuario', JSON.stringify(element))
+                      if (this.rememberMe) {
+                          localStorage.setItem('usuario', JSON.stringify(element))
+                      }
                       this.router.navigate(['/catalogo'])
                   } else {
                     this.error = true;
@@ -37,6 +41,10 @@ export class LoginComponent implements OnInit {
               }
           });
       })
+  }
+
+  eventCheck(event){
+      this.rememberMe = event.checked;
   }
 
   ngOnInit(): void {
