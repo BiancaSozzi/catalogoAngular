@@ -15,7 +15,11 @@
             <p class="text-danger" *ngIf = "loginForm.get('password').hasError('required') && loginForm.get('password').dirty">Este campo es obligatorio</p>
             <p class="text-warning" *ngIf="loginForm.get('password').hasError('minlength') || loginForm.get('password').hasError('maxlength') ">Debe tener entre 6 y 10 caracteres</p>
         </div>
-        <input class="text-center" type="submit" [value]="login_logut_msg" [disabled]="loginForm.invalid" *ngIf="!logged_in">
+        <div>
+            <input type="checkbox">
+            <label class="px-2">Recuerdame</label>
+        </div>
+        <input class="text-center" type="submit" [value]="login_logut_msg" [disabled]="loginForm.invalid" *ngIf="!logged_in" >
         <input class="text-center" type="submit" [value]="login_logut_msg" *ngIf="logged_in">
     </form>
     <p *ngIf="logged_in" class="m-3 text-success">Has iniciado sesion exitosamente! </p>

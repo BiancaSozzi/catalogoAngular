@@ -39,5 +39,12 @@
         "details": "Interruptores Roccat Titan - Innovadores interruptores mecánicos, táctiles, silenciosos y suaves, diseño único con teclas reducidas, recorrido de 1,8 mm y tiempo de rebote reducido \n Iluminación AIMO - Iluminación RGB de una sola tecla con efectos de iluminación LED configurables en 16,8 millones de colores y efecto AIMO ajustable (soporta la sincronización entre múltiples dispositivos AIMO) \n Diseño de alta calidad y duradero - Materiales robustos e interruptores resistentes al polvo, acabado de aluminio anodizado \n Anti-fantasmas avanzados con NRKO - rotación completa de n teclas, cada pulsación de tecla se registra \n Reposamanos removible - montaje magnético, diseño ergonómico para un largo tiempo de juego \n",
         "image":"https://images-na.ssl-images-amazon.com/images/I/81jQoWXIJkL._AC_SL1500_.jpg",
         "price": 159
-    }]
+    }],
+    "users": [
+        {
+            "id": 1,
+            "email": "admin@admin.com",
+            "password": "123456789" 
+        }
+    ]
 }

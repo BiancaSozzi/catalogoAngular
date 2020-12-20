@@ -1,1 +1,17 @@
-
+<div class="container">
+    <h1 class="m-5">Bienvenido...</h1>
+    <hr>
+    <div class="row justify-content-md-center">
+        <div *ngFor="let prod of productsList" class="card m-2" style="width: 100%;">
+          <div class="d-flex flex-row bd-highlight">
+              <img class="img-thumbnail" style="width: 25%" src="{{prod.image}}" alt="{{prod.name}}">
+              <div class="card-body">
+                <h5 class="card-title">{{prod.title}}</h5>
+                <p class="card-text">{{prod.description}}</p>
+                <h5>€ {{prod.price}}</h5>
+                <a class="float-right align-self-end" [routerLink]="['/product', prod.id]"> Ver Detalles</a>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

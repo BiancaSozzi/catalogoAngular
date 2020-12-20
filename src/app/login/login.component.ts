@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  rememberMe = false
   login_logut_msg = "Iniciar Sesion";
   logged_in = false;
 
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-      console.log(this.loginForm.value)
+
       if (this.logged_in) {
           this.logged_in = false;
           this.login_logut_msg = "Iniciar Sesion";

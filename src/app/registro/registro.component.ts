@@ -21,7 +21,6 @@ export class RegistroComponent implements OnInit {
   }
 
   register() {
-      console.log(this.registroForm.value)
       this.registered = true;
   }
 

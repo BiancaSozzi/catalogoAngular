@@ -9,6 +9,7 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { UsersComponent } from './users/users.component'
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
@@ -19,7 +20,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     CatalogoComponent,
     RegistroComponent,
     LoginComponent,
-    DetalleComponent
+    DetalleComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
