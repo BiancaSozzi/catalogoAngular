@@ -43,7 +43,7 @@
     "users": [
         {
             "id": 1,
-            "username": "Admin"
+            "username": "Admin",
             "email": "admin@admin.com",
             "password": "123456789"
         }
