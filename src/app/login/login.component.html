@@ -19,8 +19,7 @@
             <input type="checkbox">
             <label class="px-2">Recuerdame</label>
         </div>
-        <input class="text-center" type="submit" [value]="login_logut_msg" [disabled]="loginForm.invalid" *ngIf="!logged_in" >
-        <input class="text-center" type="submit" [value]="login_logut_msg" *ngIf="logged_in">
+        <input class="text-center" type="submit" value="Iniciar Sesion" [disabled]="loginForm.invalid" *ngIf="!logged_in" >
     </form>
-    <p *ngIf="logged_in" class="m-3 text-success">Has iniciado sesion exitosamente! </p>
+    <p *ngIf="error" class="m-3 text-danger">Usuario y/o contraseña incorrectos</p>
 </div>

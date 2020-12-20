@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service'
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  rememberMe = false
-  login_logut_msg = "Iniciar Sesion";
+  error = false;
+  rememberMe = false;
   logged_in = false;
+  usersList;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, public usersService: UsersService, private router: Router) {
       this.loginForm = this.fb.group({
           email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
@@ -21,14 +23,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
-      if (this.logged_in) {
-          this.logged_in = false;
-          this.login_logut_msg = "Iniciar Sesion";
-      } else {
-          this.login_logut_msg = "Salir"
-          this.logged_in = true;
-      }
+      this.usersService.getUsers().subscribe(users => {
+          this.usersList = users;
+          this.usersList.forEach(element => {
+              if(element.email == this.loginForm.controls.email.value) {
+                  if(element.password == this.loginForm.controls.password.value) {
+                      this.router.navigate(['/catalogo'])
+                  } else {
+                    this.error = true;
+                  }
+              } else {
+                this.error = true;
+              }
+          });
+      })
   }
 
   ngOnInit(): void {

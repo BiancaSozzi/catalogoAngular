@@ -8,7 +8,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(userId) {
+  getUsers() {
       return this.http.get('https://my-json-server.typicode.com/BiancaSozzi/catalogoAngular/users' );
   }
 }
